@@ -4,43 +4,34 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#0b0a10">
-  <title>Le Mentaliste — pense à quelqu'un</title>
-  <meta name="description" content="Pense à quelqu'un que tu connais. Je vais deviner son prénom.">
-  <meta property="og:title" content="Le Mentaliste">
-  <meta property="og:description" content="Pense à quelqu'un que tu connais. Je vais deviner son prénom.">
+  <title>L'Oracle — choisis un symbole</title>
+  <meta name="description" content="Choisis un symbole dans ta tête. Ne me le montre pas. Je vais le trouver.">
+  <meta property="og:title" content="L'Oracle">
+  <meta property="og:description" content="Choisis un symbole dans ta tête. Ne me le montre pas. Je vais le trouver.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div id="app">
-    <header class="top">
-      <span class="mark" aria-hidden="true">◉</span>
-      <span class="title">Le Mentaliste</span>
-    </header>
-    <main id="chat" aria-live="polite"></main>
+    <header class="top"><span class="mark" aria-hidden="true">◉</span> L'Oracle</header>
+    <section class="caption" aria-live="polite">
+      <h1 id="title"></h1>
+      <p id="sub"></p>
+    </section>
+    <div id="stage">
+      <svg id="ring" viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="38" />
+        <g transform="rotate(15 50 50)"><path class="arrow" d="M48.6 10.6 L50.4 12 L48.6 13.4" /></g>
+        <g transform="rotate(105 50 50)"><path class="arrow" d="M48.6 10.6 L50.4 12 L48.6 13.4" /></g>
+        <g transform="rotate(195 50 50)"><path class="arrow" d="M48.6 10.6 L50.4 12 L48.6 13.4" /></g>
+        <g transform="rotate(285 50 50)"><path class="arrow" d="M48.6 10.6 L50.4 12 L48.6 13.4" /></g>
+      </svg>
+      <div id="symbols"></div>
+      <p id="oracleText"></p>
+    </div>
     <footer id="controls"></footer>
   </div>
-
-  <section id="listView" hidden aria-label="Liste de prénoms">
-    <div class="listHead">
-      <p>Retrouve son prénom. Quand il est à l'écran, <strong>fixe-le</strong> en pensant à cette personne.</p>
-      <p class="small">Ne clique pas dessus.</p>
-    </div>
-    <div id="nameList"></div>
-    <nav id="alphaIndex" aria-label="Aller à la lettre"></nav>
-    <div class="listBar">
-      <button id="seeBtn" class="btn primary">Je le vois</button>
-      <button id="notInListBtn" class="link">Son prénom n'est pas dans la liste</button>
-    </div>
-    <div id="focusOverlay" hidden>
-      <p id="focusText">Fixe son prénom…</p>
-      <p id="focusCount"></p>
-    </div>
-  </section>
-
   <aside id="debug" hidden></aside>
-
-  <script src="prenoms.js"></script>
-  <script src="engine.js"></script>
+  <script src="oracle.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
