@@ -88,3 +88,32 @@ button { font: inherit; color: inherit; }
   font: 11px/1.4 ui-monospace, Menlo, monospace; color: #9f9; padding: 8px; white-space: pre-wrap;
 }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+
+/* ---------- Détecteur : un symbole à la fois ---------- */
+#probe {
+  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  color: var(--gold); -webkit-user-select: none; user-select: none;
+}
+#probe[hidden] { display: none; }
+#probeIcon { width: 42%; aspect-ratio: 1; transition: opacity 0.08s linear, transform 0.12s ease-out; }
+#probeIcon svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 10px rgba(210, 176, 114, 0.35)); }
+#probeName { font-family: var(--serif); font-size: clamp(22px, 6vw, 30px); color: var(--ink); margin-top: 10px; min-height: 1.3em; transition: opacity 0.08s linear; }
+#probe.blank #probeIcon, #probe.blank #probeName { opacity: 0; }
+#probe.blank #probeIcon { transform: scale(0.94); }
+
+#progress { display: flex; gap: 5px; justify-content: center; flex-wrap: wrap; max-width: 300px; margin: 2px auto 0; }
+#progress[hidden] { display: none; }
+#progress i { width: 6px; height: 6px; border-radius: 50%; background: rgba(210, 176, 114, 0.2); }
+#progress i.done { background: var(--gold); }
+
+.answer { min-width: 130px; padding: 16px 26px; font-size: 18px; }
+.answer.no { background: var(--gold); color: #17130b; border-color: var(--gold); font-weight: 700; }
+
+/* ---------- Ce qui t'a trahi ---------- */
+#bars { position: absolute; left: 2%; right: 2%; top: 8%; bottom: 8%; display: flex; align-items: flex-end; gap: 2%; }
+#bars[hidden] { display: none; }
+#bars .bar { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; color: var(--muted); }
+#bars .col { width: 100%; border-radius: 4px 4px 0 0; background: rgba(236, 231, 220, 0.18); transition: height 0.8s cubic-bezier(.2,.7,.2,1); height: 0; }
+#bars .bar.me { color: var(--gold); }
+#bars .bar.me .col { background: var(--gold); box-shadow: 0 0 14px rgba(210, 176, 114, 0.6); }
+#bars svg { width: 100%; aspect-ratio: 1; margin-top: 6px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
