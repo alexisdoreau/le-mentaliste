@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0a10">
+  <title>Le Mentaliste — pense à quelqu'un</title>
+  <meta name="description" content="Pense à quelqu'un que tu connais. Je vais deviner son prénom.">
+  <meta property="og:title" content="Le Mentaliste">
+  <meta property="og:description" content="Pense à quelqu'un que tu connais. Je vais deviner son prénom.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <header class="top">
+      <span class="mark" aria-hidden="true">◉</span>
+      <span class="title">Le Mentaliste</span>
+    </header>
+    <main id="chat" aria-live="polite"></main>
+    <footer id="controls"></footer>
+  </div>
+
+  <section id="listView" hidden aria-label="Liste de prénoms">
+    <div class="listHead">
+      <p>Retrouve son prénom. Quand il est à l'écran, <strong>fixe-le</strong> en pensant à cette personne.</p>
+      <p class="small">Ne clique pas dessus.</p>
+    </div>
+    <div id="nameList"></div>
+    <nav id="alphaIndex" aria-label="Aller à la lettre"></nav>
+    <div class="listBar">
+      <button id="seeBtn" class="btn primary">Je le vois</button>
+      <button id="notInListBtn" class="link">Son prénom n'est pas dans la liste</button>
+    </div>
+    <div id="focusOverlay" hidden>
+      <p id="focusText">Fixe son prénom…</p>
+      <p id="focusCount"></p>
+    </div>
+  </section>
+
+  <aside id="debug" hidden></aside>
+
+  <script src="prenoms.js"></script>
+  <script src="engine.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
